@@ -26,6 +26,7 @@ namespace EnglishProject
         }
         private void btnSettings_Click(object sender, EventArgs e)
         {
+            // ayarlar formunu main formundai panele getir
             panel2.Controls.Clear();
             Settings frm1 = new Settings(userID);
             frm1.TopLevel = false;
