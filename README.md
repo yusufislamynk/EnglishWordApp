@@ -16,7 +16,7 @@
 
 # Contact Us
 
-You can contact us if you have a question. 
+If you have questions about the project, you can contact us through the e-mail addresses below.
 *yusufislamyanik67@gmail.com
 *batukl89@gmail.com
 *semihdemiryzm@gmail.com
