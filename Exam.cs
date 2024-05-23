@@ -302,6 +302,11 @@ namespace EnglishProject
             examIdParagraph.Alignment = Element.ALIGN_CENTER;
             document.Add(examIdParagraph);
 
+            //user ıd kimliği
+            Paragraph userIdParagraph = new Paragraph($"User Id: {userId}", new iTextSharp.text.Font(iTextSharp.text.Font.FontFamily.HELVETICA, 12f, iTextSharp.text.Font.NORMAL, BaseColor.BLACK));
+            userIdParagraph.Alignment = Element.ALIGN_CENTER;
+            document.Add(userIdParagraph);
+
             // Doğru ve yanlış sayıları
             Paragraph correctCountParagraph = new Paragraph($"Correct Answer: {correctCount}", new iTextSharp.text.Font(iTextSharp.text.Font.FontFamily.HELVETICA, 12f, iTextSharp.text.Font.NORMAL, BaseColor.GREEN));
             correctCountParagraph.Alignment = Element.ALIGN_CENTER;
