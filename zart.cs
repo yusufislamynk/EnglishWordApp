@@ -161,7 +161,7 @@ namespace EnglishProject
             {
                 reader.Close(); // SqlDataReader'ı burada kapat
 
-                //Email yok bu yüzden kayıt yap
+                //email yok kayıt ol
                 string username = userNameTxt.Text;
                 string name = nameTxt.Text;
                 string surname = nameSurname.Text;
