@@ -337,15 +337,32 @@ namespace EnglishProject
             addAnswerToReport(wordList[currentWordIndex-1], btnB);
         }
 
-        private void btnC_Click(object sender, EventArgs e)
+       private void btnC_Click(object sender, EventArgs e)
         {
-            getNextQuestion(this.wordList);
-            pictureBox1.ImageLocation = wordImage;
-            addAnswerToReport(wordList[currentWordIndex - 1], btnC);
+            // Bir sonraki soruyu al
+            LoadNextQuestion(wordList);
+    
+            // Resmi güncelle
+            pictureBox1.ImageLocation = currentWordImage;
+    
+            // Cevabı rapora ekle
+        RecordAnswer(wordList[currentWordIndex - 1], btnC);
         }
 
+            // Bir sonraki soruyu yükleyen fonksiyon
+        private void LoadNextQuestion(List<Word> words)
+            {
+            getNextQuestion(words);
+            }
+    
+        // Cevabı rapora ekleyen fonksiyon
+        private void RecordAnswer(Word word, Button button)
+            {
+    addAnswerToReport(word, button);
+            }
+
         private void btnD_Click(object sender, EventArgs e)
-        {
+            {
             getNextQuestion(this.wordList);
             pictureBox1.ImageLocation = wordImage;
             addAnswerToReport(wordList[currentWordIndex-1], btnD);
