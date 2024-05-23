@@ -9,38 +9,40 @@ using System.Text;
 using System.Threading.Tasks;
 using System.Windows.Forms;
 
-namespace EnglishProject
+namespace EnglishProject // Proje için bir ad alanı tanımlıyor.
 {
-    public partial class Login : Form
+    public partial class Login : Form // Form sınıfından türeyen kısmi Login sınıfını tanımlıyor.
     {
-        public Login()
+        public Login() // Login sınıfı için yapılandırıcı
         {
-            InitializeComponent();
+            InitializeComponent(); // Form üzerindeki bileşenleri (kontrolleri) başlatmak için metot.
         }
-        private void btnLogin_Click(object sender, EventArgs e)
+
+        private void btnLogin_Click(object sender, EventArgs e) // btnLogin butonunun tıklanma olayı için olay işleyici
         {
-            string username = tbName.Text;
-            Connect.con.Open();
-            SqlCommand cmd = new SqlCommand();
-            cmd.Connection = Connect.con;
-            // cmd.CommandText = "insert into Users (name,surname,username,email,password) values ('name','surname','username','email','Password')";
+            string username = tbName.Text; // tbName kontrolünden kullanıcı adını alıyor.
+            Connect.con.Open(); // Veritabanı bağlantısını açıyor.
+            SqlCommand cmd = new SqlCommand(); // Yeni bir SqlCommand nesnesi oluşturuyor.
+            cmd.Connection = Connect.con; // SqlCommand nesnesini veritabanı bağlantısına bağlar.
+
+            // Komut metnini SQL sorgusu olarak ayarlar, kullanıcı adı ve sabit parola ile.
             cmd.CommandText = $"select Count(*) as 'Count' from Users where username = '{username}' and password ='test'";
-            int count = (int)cmd.ExecuteScalar();
+            int count = (int)cmd.ExecuteScalar(); // Sorguyu çalıştırır ve dönen sonucu integer olarak alır.
 
-            if (count==0) 
+            if (count == 0) // Eğer count 0 ise (kullanıcı adı ve parola eşleşmiyorsa)
             {
-                label1.Text = "Başarıyla giriş yapıldı";
+                label1.Text = "Başarıyla giriş yapıldı"; // label1 kontrolüne mesaj yazdırır.
             }
-            else
+            else // Eğer count 0 değilse (kullanıcı adı ve parola eşleşiyorsa)
             {
-                label1.Text = "Giriş yapıldı";
+                label1.Text = "Giriş yapıldı"; // label1 kontrolüne mesaj yazdırır.
             }
-            Connect.con.Close();
+            Connect.con.Close(); // Veritabanı bağlantısını kapatır.
         }
 
-        private void Login_Load(object sender, EventArgs e)
+        private void Login_Load(object sender, EventArgs e) // Formun Load olayı için olay işleyici
         {
-
+            // Bu metot form yüklendiğinde çağrılır.
         }
     }
 }
