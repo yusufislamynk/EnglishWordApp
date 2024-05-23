@@ -1,4 +1,4 @@
-﻿using System;
+using System;
 using System.Collections.Generic;
 using System.ComponentModel;
 using System.Data;
@@ -13,14 +13,16 @@ namespace EnglishProject
 {
     public partial class Form1 : Form
     {
+        // Form1 sınıfının kurucusu (constructor)
         public Form1()
         {
-            InitializeComponent();
+            InitializeComponent(); // Form bileşenlerini başlat
         }
 
+        // Form yüklendiğinde tetiklenen olay (event)
         private void Form1_Load(object sender, EventArgs e)
         {
-           
+            // Form yüklendiğinde yapılacak işlemler buraya eklenebilir
         }
     }
 }
