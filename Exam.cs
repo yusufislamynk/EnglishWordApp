@@ -69,7 +69,7 @@ namespace EnglishProject
                 ))
                 OR (isLearning = 0 AND userID = {userID})";
 
-            // SqlCommand ile sorguyu çalıştır ve sonuçları oku
+            // SqlCommand ile sorguyu çalıştır ve sonuçları oku!
             SqlCommand cmd = new SqlCommand(query, Connect.con);
             SqlDataReader reader = cmd.ExecuteReader();
             // Kelimeleri saklamak için bir liste oluştur
