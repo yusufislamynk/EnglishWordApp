@@ -42,6 +42,8 @@ namespace EnglishProject
         }
 
         private void btnSave_Click(object sender, EventArgs e)
+
+        // ayarlar butonu içerisinde seçilen kelime sayısını getiriyor
         {
             Connect.con.Open();
             string updateQuery = $"UPDATE Users SET questionCount = {Convert.ToInt32(tbQuestionCount.Text)} WHERE userID = {userID}";
