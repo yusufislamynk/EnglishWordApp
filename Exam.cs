@@ -14,6 +14,8 @@ using System.Windows.Forms;
 namespace EnglishProject
 {
     public partial class Exam : Form
+
+    // gerekli olan sınav modülü tanımlanıyor
     {
         int currentWordIndex = 0;
         List<Word> wordList = new List<Word>();
