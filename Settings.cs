@@ -45,21 +45,54 @@ namespace EnglishProject
 
         // ayarlar butonu içerisinde seçilen kelime sayısını getiriyor
         {
-            Connect.con.Open();
-            string updateQuery = $"UPDATE Users SET questionCount = {Convert.ToInt32(tbQuestionCount.Text)} WHERE userID = {userID}";
+            try
+{
+    // Bağlantıyı aç
+    Connect.con.Open();
 
-            // SqlCommand ile güncelleme sorgusunu çalıştır
-            SqlCommand updateCmd = new SqlCommand(updateQuery, Connect.con);
-            int rowsAffected = updateCmd.ExecuteNonQuery();
-            Connect.con.Close();
+    // Güncelleme sorgusu için parametreli SQL kullan
+    string updateQuery = "UPDATE Users SET questionCount = @questionCount WHERE userID = @userID";
 
+    // SqlCommand ile güncelleme sorgusunu çalıştır
+    using (SqlCommand updateCmd = new SqlCommand(updateQuery, Connect.con))
+    {
+        // Parametreleri ekle
+        updateCmd.Parameters.AddWithValue("@questionCount", Convert.ToInt32(tbQuestionCount.Text));
+        updateCmd.Parameters.AddWithValue("@userID", userID);
+
+        // Sorguyu çalıştır ve etkilenen satır sayısını al
+        int rowsAffected = updateCmd.ExecuteNonQuery();
+
+        // İşlemin başarılı olduğunu bildir
+        if (rowsAffected > 0)
+        {
             MessageBox.Show("Question count successfully updated!", "Information");
-            /*
-            // Başka bir forma yönlendir
-            Main mainForm = new Main(userID);
-            mainForm.Show();
-            this.Hide();
-            */
+        }
+        else
+        {
+            MessageBox.Show("No rows affected. Please check the user ID.", "Warning");
+        }
+            }
+        }
+        catch (Exception ex)
+        {
+            // Hata mesajı göster
+            MessageBox.Show($"An error occurred: {ex.Message}", "Error");
+        }
+        finally
+        {
+            // Bağlantıyı kapat
+            if (Connect.con.State == ConnectionState.Open)
+            {
+                Connect.con.Close();
+            }
+        }
+
+        // Başka bir forma yönlendir
+        Main mainForm = new Main(userID);
+        mainForm.Show();
+        this.Hide();
+
         }
 
         private void btnBack_Click(object sender, EventArgs e)
