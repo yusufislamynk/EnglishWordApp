@@ -1,23 +1,20 @@
-**About this project ***
----------------------------
-# English Word App.
+**About This Project**
+----------------------
+# English Word App
+Technologies Used:
 
-*  C# .NET FRAMEWORK
-*  MSQL Server
-*  Visual Studio 2022
-  
+* C# .NET Framework
+* MS SQL Server
+* Visual Studio 2022
 # Design Tools
-
-*We used Guna2 Tools
-
+* Guna2 Tools
 # Source Code
-
-*To load the source project you will need Visual Studio 2022.
+* To load the source project, you will need Visual Studio 2022.
 
 # Contact Us
+For any questions, feel free to contact us at:
 
-You can contact us if you have a question. 
-*yusufislamyanik67@gmail.com
-*batukl89@gmail.com
-*semihdemiryzm@gmail.com
-*enesizzet4646@gmail.com
+* yusufislamyanik67@gmail.com
+* batukl89@gmail.com
+* semihdemiryzm@gmail.com
+* enesizzet4646@gmail.com
